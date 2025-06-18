@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة المناقصات السعودية</title>
+    
+    <!-- Bootstrap CSS RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Tender.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-bottom">
+        <div class="container">
+            <!-- Top Bar -->
+            <div class="row align-items-center py-3 border-bottom">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="logo-box bg-success rounded d-flex align-items-center justify-content-center me-3">
+                            <span class="text-white fw-bold">KSA</span>
+                        </div>
+                        <div>
+                            <h1 class="h5 mb-0 fw-bold text-dark">بوابة المناقصات السعودية</h1>
+                            <p class="small text-muted mb-0">KSA Tenders & Projects Platform</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+                        <div class="d-flex align-items-center text-muted small">
+                            <i class="bi bi-globe me-1"></i>
+                            <span>English</span>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>
+                            تسجيل الدخول
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-person-plus me-1"></i>
+                            تسجيل جديد
+                        </button>
+                        <div class="text-muted small">17 Jun 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="py-3">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">الرئيسية</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success fw-medium active-nav" href="#">المناقصات الحكومية</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">الأعضاء</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">الاستفسارات</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">المشاريع</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">التدريب والاستشارات</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex gap-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="البحث في المناقصات..." id="searchInput">
+                                <button class="btn btn-success" type="button" id="searchBtn">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- News Bar -->
+    <div class="bg-success text-white py-3 overflow-hidden">
+        <div class="news-scroll">
+            <div class="d-inline-flex align-items-center gap-5" id="newsContainer">
+                <span class="small">النفط والغاز مهمان في أوقات الصراع، يقول الرئيس التنفيذي لأرامكو السعودية</span>
+                <span class="small">ولي العهد السعودي ورئيس الوزراء اليوناني يناقشان التوترات الإيرانية الإسرائيلية في مكالمة هاتفية</span>
+                <span class="small">التضخم السعودي يحافظ على استقراره عند 2.2% في مايو</span>
+                <span class="small">قطاعا التصنيع والتعدين يقودان النمو الصناعي السعودي إلى 3.1%: جاستات</span>
+                <span class="small">أرباح البنوك التجارية السعودية ترتفع 16% في أبريل، وتتجاوز 2 مليار دولار قبل الزكاة والضرائب</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section bg-success text-white py-5 position-relative">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold mb-4">المناقصات الحكومية</h1>
+                <p class="lead">ابحث عن أحدث المناقصات والمشاريع الحكومية في المملكة العربية السعودية</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <!-- Categories Section -->
+        <div class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="h3 fw-bold text-dark">البحث حسب الفئة</h2>
+                <div id="selectedCategoryBadge" class="d-none">
+                    <span class="text-muted me-2">الفئة المختارة:</span>
+                    <span class="badge bg-success-subtle text-success border border-success px-3 py-2" id="selectedCategoryText"></span>
+                </div>
+            </div>
+
+            <!-- Category Buttons -->
+            <div class="row mb-4" id="categoryButtons">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        <button class="btn btn-success rounded-pill px-4 py-2 fw-medium category-btn active" data-category="all">
+                            جميع الفئات
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Grid -->
+            <div class="row g-3" id="categoryGrid">
+                <!-- Categories will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Tenders Section -->
+        <div class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex align-items-center gap-3">
+                   
+                    <h2 class="h3 fw-bold text-dark mb-0">المناقصات </h2>
+                </div>
+                <button class="btn btn-link text-success fw-medium text-decoration-none d-none" id="clearFiltersBtn">
+                    مسح جميع المرشحات
+                </button>
+            </div>
+
+            <!-- Tenders Container -->
+            <div id="tendersContainer">
+                <!-- Tenders will be loaded here by JavaScript -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">بوابة المناقصات السعودية</h5>
+                    <p class="text-light small">منصة شاملة للمناقصات والمشاريع الحكومية في المملكة العربية السعودية</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-semibold mb-3">الخدمات</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">المناقصات الحكومية</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">المشاريع</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">التدريب والاستشارات</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-semibold mb-3">الدعم</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">الاستفسارات</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">المساعدة</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-semibold mb-3">تابعنا</h6>
+                    <div class="d-flex gap-2">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <i class="bi bi-facebook text-white small"></i>
+                        </div>
+                        <div class="bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <i class="bi bi-twitter text-white small"></i>
+                        </div>
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <i class="bi bi-linkedin text-white small"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center small text-light">
+                <p>&copy; 2025 بوابة المناقصات السعودية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="Tender.js"></script>
+</body>
+</html>

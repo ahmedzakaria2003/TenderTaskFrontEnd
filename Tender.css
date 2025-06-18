@@ -1,0 +1,220 @@
+:root {
+    --primary-green: #28a745;
+    --primary-green-hover: #218838;
+    --success-subtle: #d1e7dd;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.logo-box {
+    width: 48px;
+    height: 48px;
+}
+
+.active-nav {
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: 8px;
+}
+
+.news-scroll {
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-green) 0%, #20c997 100%);
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.category-btn {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.category-btn:not(.active) {
+    background-color: white;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+.category-btn:not(.active):hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+}
+
+.category-btn.active {
+    background-color: var(--primary-green);
+    color: white;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.category-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #dee2e6;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-green);
+}
+
+.category-card.selected {
+    border-color: var(--primary-green);
+    background-color: var(--success-subtle);
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+.category-icon {
+    font-size: 2rem;
+}
+
+.tender-card {
+    transition: all 0.3s ease;
+    border-right: 4px solid var(--primary-green);
+}
+
+.tender-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.status-active {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #a3cfbb;
+}
+
+.status-closed {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f1aeb5;
+}
+
+.status-upcoming {
+    background-color: #cce7ff;
+    color: #084298;
+    border: 1px solid #9ec5fe;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .category-btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    .tender-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-box {
+        width: 40px;
+        height: 40px;
+    }
+    .hero-section {
+        padding: 2rem 0;
+    }
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.bg-success-subtle {
+    background-color: var(--success-subtle);
+}
+
+.text-success {
+    color: var(--primary-green);
+}
+
+.border-success {
+    border-color: var(--primary-green);
+}
+
+.btn-success {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-success:hover {
+    background-color: var(--primary-green-hover);
+    border-color: var(--primary-green-hover);
+}
+
+.card {
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background-color: #e8f5e9;
+}
+
+.card-footer {
+    background-color: #f1f1f1;
+    border-top: 1px solid #dee2e6;
+}
+
+.bi {
+    margin-right: 5px;
+}
+
+#categoryGrid .card {
+    min-height: 120px;
+}
+
+#categoryGrid .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#categoryGrid .card-title {
+    font-size: 1rem;
+}
+
+#tendersContainer .card {
+    border-left-width: 4px;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}
